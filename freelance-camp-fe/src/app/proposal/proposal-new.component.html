@@ -1,0 +1,103 @@
+<h1>Create Proposal</h1>
+
+<div>
+	<form #proposalForm = "ngForm">
+		<div class="form-group">
+			<label for = "customer">Customer Name</label>
+			<input type="text" id="customer" placeholder="ABC company" required name = "customer" #customer = "ngModel"
+            [(ngModel)] = "proposal.customer"
+
+			>
+		<div [hidden]="customer.valid || customer.pristine">
+			Customer name is required
+		</div>
+			
+		</div>
+
+
+
+		<div class="form-group">
+			<label for = "portfolio_url">Portfolio URL</label>
+			<input type="text" id="portfolio_url" required name = "portfolio_url" #portfolio_url = "ngModel"
+            [(ngModel)] = "proposal.portfolio_url"
+
+			>
+		<div [hidden]="portfolio_url.valid || portfolio_url.pristine">
+			URL is required
+		</div>
+			
+		</div>
+
+
+		<div class="form-group">
+			<label for = "tools">Tools use on this project</label>
+			<input type="text" id="tools" placeholder="RoR Angular" required name = "tools" #tools = "ngModel"
+            [(ngModel)] = "proposal.tools"
+
+			>
+		<div [hidden]="tools.valid || tool.pristine">
+			A list of tool is not present
+		</div>
+			
+		</div>
+		<div class="form-group">
+			<label for="estimated_hours">Estimated hours</label>
+			<input type="number"
+							id="estimated_hours"
+							required
+							name="estimated_hours"
+							#estimated_hours='ngModel'
+							[(ngModel)]="proposal.estimated_hours"
+			>
+
+		<div [hidden]="estimated_hours.valid || estimated_hours.pristine">
+			Please enter estimated hours
+		</div>
+		</div>
+
+		<div class="form-group">
+			<label for="hourly_rate">Hourly rate</label>
+			<input type="number"
+							id="hourly_rate"
+							required
+							name="hourly_rate"
+							#hourly_rate='ngModel'
+							[(ngModel)]="proposal.hourly_rate"
+			>
+		</div>
+
+		<div class="form-group">
+			<label for="weeks_to_complete">Weeks to Complete</label>
+			<input type="number"
+							id="weeks_to_complete"
+							required
+							name="weeks_to_complete"
+							#weeks_to_complete='ngModel'
+							[(ngModel)]="proposal.weeks_to_complete"
+			>
+		</div>
+
+		<div class="form-group">
+			<label for="client_email">Client Email <em>(Optional)</em></label>
+			<input type="email"
+							id="client_email"
+							name="client_email"
+							#client_email='ngModel'
+							[(ngModel)]="proposal.client_email"
+			>
+		</div>
+
+	</form>
+
+</div>
+
+
+<div>
+	<h1>{{proposal.customer}}</h1>
+	<a href="{{proposal.portfolio_url}}">url</a>
+	<h1> tools: {{proposal.tools}}  </h1>
+	<h1>estimated_hours:{{proposal.estimated_hours}}</h1>
+	<h1>hourly_rate:{{proposal.hourly_rate}}</h1>
+	<h1>weeks to complete:{{proposal.weeks_to_complete}}</h1>
+	<h1>client_email: {{proposal.client_email}}</h1>
+</div>
